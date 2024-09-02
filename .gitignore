@@ -1,2 +1,6 @@
 node_modules/
 .vscode/
+venv/
+my_venv/
+__pycache__/
+ner_model/model.safetensors

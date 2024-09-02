@@ -63,6 +63,45 @@
         text-decoration: inherit;
         color: inherit;
       }
+
+      .ent.on {
+        padding: 4px 4px;
+        line-height: 2;
+        border-radius: 0.3em;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      .ent.ent-person.on {
+        background: #07bd43;
+      }
+
+      .ent.ent-org.on {
+        background: #0099cc;
+      }
+
+      .ent.ent-loc.on {
+        background: #f00b0b;
+      }
+
+      .ent.ent-misc.on {
+        background: #ffe600;
+      }
+
+      .entity-label {
+        display: none;
+        user-select: none;
+      }
+
+      .entity-label.on {
+        display: inline;
+        user-select: text;
+        font-size: smaller;
+        margin-left: 0.3em;
+        background-color: white;
+        padding-left: 2px;
+        padding-right: 2px;
+      }
     </style>
   </head>
   <body>
@@ -108,7 +147,7 @@
             class="form-control"
             id="inputText"
             placeholder="Write something here..."
-            style="resize: none; height: 100%"
+            style="resize: none; min-height: 215px"
           ></textarea>
         </div>
         <div id="queryButton">
@@ -141,21 +180,9 @@
             </label>
           </div>
           <div class="option">
-            <label for="norp">
-              <input type="checkbox" id="norp" value="norp" class="entity" />
-              <strong class="label" id="norp-label">NORP</strong>
-            </label>
-          </div>
-          <div class="option">
             <label for="org">
               <input type="checkbox" id="org" value="org" class="entity" />
               <strong class="label" id="org-label">ORG</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="gpe">
-              <input type="checkbox" id="gpe" value="gpe" class="entity" />
-              <strong class="label" id="gpe-label">GPE</strong>
             </label>
           </div>
           <div class="option">
@@ -165,104 +192,9 @@
             </label>
           </div>
           <div class="option">
-            <label for="product">
-              <input
-                type="checkbox"
-                id="product"
-                value="product"
-                class="entity"
-              />
-              <strong class="label" id="product-label">PRODUCT</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="event">
-              <input type="checkbox" id="event" value="event" class="entity" />
-              <strong class="label" id="event-label">EVENT</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="work_of_art">
-              <input
-                type="checkbox"
-                id="work_of_art"
-                value="work_of_art"
-                class="entity"
-              />
-              <strong class="label" id="work_of_art-label">WORK OF ART</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="language">
-              <input
-                type="checkbox"
-                id="language"
-                value="language"
-                class="entity"
-              />
-              <strong class="label" id="language-label">LANGUAGE</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="date">
-              <input type="checkbox" id="date" value="date" class="entity" />
-              <strong class="label" id="date-label">DATE</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="time">
-              <input type="checkbox" id="time" value="time" class="entity" />
-              <strong class="label" id="time-label">TIME</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="percent">
-              <input
-                type="checkbox"
-                id="percent"
-                value="percent"
-                class="entity"
-              />
-              <strong class="label" id="percent-label">PERCENT</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="money">
-              <input type="checkbox" id="money" value="money" class="entity" />
-              <strong class="label" id="money-label">MONEY</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="quantity">
-              <input
-                type="checkbox"
-                id="quantity"
-                value="quantity"
-                class="entity"
-              />
-              <strong class="label" id="quantity-label">QUANTITY</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="ordinal">
-              <input
-                type="checkbox"
-                id="ordinal"
-                value="ordinal"
-                class="entity"
-              />
-              <strong class="label" id="ordinal-label">ORDINAL</strong>
-            </label>
-          </div>
-          <div class="option">
-            <label for="cardinal">
-              <input
-                type="checkbox"
-                id="cardinal"
-                value="cardinal"
-                class="entity"
-              />
-              <strong class="label" id="cardinal-label">CARDINAL</strong>
+            <label for="misc">
+              <input type="checkbox" id="misc" value="misc" class="entity" />
+              <strong class="label" id="misc-label">MISC</strong>
             </label>
           </div>
         </div>
@@ -323,30 +255,22 @@
       }
     });
     const colorDict = {
-      person: "#66ff99",
-      norp: "#0099cc",
-      org: "#ff9900",
-      gpe: "#ff6666",
-      loc: "#9933ff",
-      product: "#ffff66",
-      event: "#00cc66",
-      work_of_art: "#ffcc00",
-      language: "#6666ff",
-      date: "#cc3399",
-      time: "#3366cc",
-      percent: "#9900cc",
-      money: "#006600",
-      quantity: "#ffcc66",
-      ordinal: "#ff66ff",
-      cardinal: "#9da8bd",
+      person: "#07bd43",
+      org: "#0099cc",
+      loc: "#f00b0b",
+      misc: "#ffe600",
     };
     $(".entity").on("click", function (event) {
       const labelName = event.target.id;
       const labelID = `#${labelName}-label`;
       if (this.checked) {
         $(labelID).css("background-color", colorDict[labelName]);
+        $(`.ent.ent-${labelName}`).addClass("on");
+        $(`.ent.ent-${labelName} .entity-label`).addClass("on");
       } else {
         $(labelID).css("background-color", "");
+        $(`.ent.ent-${labelName}`).removeClass("on");
+        $(`.ent.ent-${labelName} .entity-label`).removeClass("on");
       }
     });
     $("#selectAll").on("click", function () {
@@ -364,17 +288,30 @@
       $(".label").addClass("rounded");
       $("#queryButton").click(function () {
         const inputText = $("#inputText").val();
+        if (!inputText.length) {
+          $("#output").empty();
+          $("#output").append("Please enter some text...");
+          return;
+        }
         $.ajax({
           type: "GET",
           url: "/api/output",
           data: { text: inputText },
           success: function (res) {
             $("#output").empty();
+            console.log(res);
             const chunks = res.data
               .split(/\n+/)
               .filter((chunk) => chunk.trim() !== "");
             const wrappedChunks = chunks.map((chunk) => `<p>${chunk}</p>`);
             $("#output").append(wrappedChunks.join(""));
+            const checkedCheckboxes = $(".entity:checked");
+
+            checkedCheckboxes.each(function () {
+              const checkboxId = $(this).attr("id");
+              $(`.ent.ent-${checkboxId}`).addClass("on");
+              $(`.ent.ent-${checkboxId} .entity-label`).addClass("on");
+            });
           },
           error: function (error) {
             console.error(error);
