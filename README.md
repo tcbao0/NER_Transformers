@@ -8,6 +8,6 @@ Cách chạy chương trình:
 
 3. Mở thư mục vừa clone về bằng VSCODE.
 
-4. Mở terminal bên trong VSCODE (Ctrl + ~), rồi gõ lệnh "npm i".
+4. Mở terminal bên trong VSCODE (Ctrl + ~), rồi gõ lệnh "npm i" để cài đặt các packages cần thiết để chạy chương trình.
 
 5. Sau khi cài đặt xong, gõ lệnh "npm start" để chạy chương trình.
