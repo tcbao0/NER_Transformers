@@ -1,7 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 
-const modelPort = process.env.MODEL_PORT || 8000;
+const modelPort = process.env.MODEL_PORT || 5000;
 
 const entity = {
   PER: `<span class="ent ent-person">`,

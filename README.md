@@ -4,7 +4,7 @@ Cách chạy chương trình trên máy tính cá nhân:
 
 1. Tải và cài đặt Node.js (phiên bản LTS) tại đây: https://nodejs.org/en (lúc cài đặt, đừng chọn ô "Automatically install the necessary tools...")
 
-2. Tải Python về máy tính (nên dùng python 3.9 trở về sau)
+2. Tải Python 3.11.9 về máy tính (tải các phiên bản Python khác có thể bị lỗi trong quá trình cài đặt thư viện, và đường dẫn các bước bên dưới có thể khác): https://www.python.org/downloads/release/python-3119/
 
 3. Clone repository này về máy tính
 
