@@ -32,6 +32,19 @@
       rel="stylesheet"
     />
     <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        width: 80%;
+        margin: 0 auto;
+        font-family: "JetBrains Mono";
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
       .option {
         padding: 5px;
         margin: 5px;
@@ -40,12 +53,6 @@
 
       .label {
         padding: 5px;
-      }
-
-      body {
-        width: 80%;
-        margin: 0 auto;
-        font-family: "JetBrains Mono";
       }
 
       .link {
@@ -105,108 +112,116 @@
     </style>
   </head>
   <body>
-    <div
-      style="
-        text-align: center;
-        background-color: #6666ff;
-        color: white;
-        font-size: 40px;
-        user-select: none;
-      "
-      class="py-3"
-      id="title"
-    >
-      <div>Named Entity Recognition Visualization</div>
-    </div>
-    <div class="d-flex justify-content-end" id="header">
-      <div class="link">
-        <a href="#" target="_blank" class="nostyle">Github</a>
+    <header>
+      <div
+        style="
+          text-align: center;
+          background-color: #6666ff;
+          color: white;
+          font-size: 40px;
+          user-select: none;
+        "
+        class="py-3"
+        id="title"
+      >
+        <div>Named Entity Recognition Visualization</div>
       </div>
-      <div class="link">
-        <a
-          href="https://huggingface.co/dslim/bert-base-NER"
-          target="_blank"
-          class="nostyle"
-          >Model</a
-        >
-      </div>
-      <div class="link">
-        <a
-          href="https://huggingface.co/datasets/eriktks/conll2003"
-          target="_blank"
-          class="nostyle"
-          >Dataset</a
-        >
-      </div>
-    </div>
-    <div class="d-flex px-3 py-3" id="upper" style="background-color: #6666ff">
-      <div class="d-flex col-8" id="input">
-        <div class="col">
-          <textarea
-            type="text"
-            class="form-control"
-            id="inputText"
-            placeholder="Write something here..."
-            style="resize: none; min-height: 215px"
-          ></textarea>
+    </header>
+    <main class="d-flex flex-column" style="min-height: 100%">
+      <div class="d-flex justify-content-end" id="header">
+        <div class="link">
+          <a href="#" target="_blank" class="nostyle">Github</a>
         </div>
-        <div id="queryButton">
-          <button class="btn" style="height: 100%">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-      </div>
-      <div class="col-4" id="labels">
-        <div>
-          <strong style="user-select: none"
-            ><span style="font-size: 24px; color: white"
-              >Entity Labels
-              <span id="selectAll" style="cursor: pointer"
-                >(select all)</span
-              ></span
-            ></strong
+        <div class="link">
+          <a
+            href="https://huggingface.co/dslim/bert-base-NER"
+            target="_blank"
+            class="nostyle"
+            >Model</a
           >
         </div>
-        <div style="user-select: none" class="d-flex flex-wrap">
-          <div class="option">
-            <label for="person">
-              <input
-                type="checkbox"
-                id="person"
-                value="person"
-                class="entity"
-              />
-              <strong class="label" id="person-label">PERSON</strong>
-            </label>
+        <div class="link">
+          <a
+            href="https://huggingface.co/datasets/eriktks/conll2003"
+            target="_blank"
+            class="nostyle"
+            >Dataset</a
+          >
+        </div>
+      </div>
+      <div
+        class="d-flex px-3 py-3"
+        id="upper"
+        style="background-color: #6666ff"
+      >
+        <div class="d-flex col-8" id="input">
+          <div class="col">
+            <textarea
+              type="text"
+              class="form-control"
+              id="inputText"
+              placeholder="Write something here..."
+              style="resize: none; min-height: 215px"
+            ></textarea>
           </div>
-          <div class="option">
-            <label for="org">
-              <input type="checkbox" id="org" value="org" class="entity" />
-              <strong class="label" id="org-label">ORG</strong>
-            </label>
+          <div id="queryButton">
+            <button class="btn" style="height: 100%">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </div>
-          <div class="option">
-            <label for="loc">
-              <input type="checkbox" id="loc" value="loc" class="entity" />
-              <strong class="label" id="loc-label">LOC</strong>
-            </label>
+        </div>
+        <div class="col-4" id="labels">
+          <div>
+            <strong style="user-select: none"
+              ><span style="font-size: 24px; color: white"
+                >Entity Labels
+                <span id="selectAll" style="cursor: pointer"
+                  >(select all)</span
+                ></span
+              ></strong
+            >
           </div>
-          <div class="option">
-            <label for="misc">
-              <input type="checkbox" id="misc" value="misc" class="entity" />
-              <strong class="label" id="misc-label">MISC</strong>
-            </label>
+          <div style="user-select: none" class="d-flex flex-wrap">
+            <div class="option">
+              <label for="person">
+                <input
+                  type="checkbox"
+                  id="person"
+                  value="person"
+                  class="entity"
+                />
+                <strong class="label" id="person-label">PERSON</strong>
+              </label>
+            </div>
+            <div class="option">
+              <label for="org">
+                <input type="checkbox" id="org" value="org" class="entity" />
+                <strong class="label" id="org-label">ORG</strong>
+              </label>
+            </div>
+            <div class="option">
+              <label for="loc">
+                <input type="checkbox" id="loc" value="loc" class="entity" />
+                <strong class="label" id="loc-label">LOC</strong>
+              </label>
+            </div>
+            <div class="option">
+              <label for="misc">
+                <input type="checkbox" id="misc" value="misc" class="entity" />
+                <strong class="label" id="misc-label">MISC</strong>
+              </label>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="p-5"
-      style="background-color: gainsboro; min-height: 300px"
-      id="output"
-    ></div>
-    <div>
-      <footer class="bg-body-tertiary text-center text-lg-start">
+      <div
+        class="p-5"
+        style="background-color: gainsboro; min-height: 150px; flex: 1 0 auto"
+        id="output"
+      ></div>
+    </main>
+    <footer class="bg-body-tertiary text-center text-lg-start">
+      <div>
         <div class="container p-4">
           <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -232,8 +247,8 @@
         >
           <strong>Named Entity Recognition Visualization</strong>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
   <script>
     $(window).on("resize", function () {
