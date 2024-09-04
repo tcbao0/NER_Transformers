@@ -8,7 +8,9 @@ Cách chạy chương trình trên máy tính cá nhân:
 
 3. Clone repository này về máy tính
 
-4. Tải model về máy tính, và bỏ vào thư mục ner_model trong repo vừa clone về: https://drive.google.com/file/d/1_VKpdsK9ChogCWPqbsHogr2S-Kc5l8RE/view?usp=sharing
+4. Tải model về máy tính (bao gồm cả hai file), và bỏ vào thư mục ner_model trong repo vừa clone về: https://drive.google.com/drive/folders/1ZDkNv_oTFt8GNvKU_scQHimEOdC9jdjw?usp=sharing
+
+- Có thể upload file BERT_NER.ipynb lên Google Colab rồi chạy tất cả các cell, rồi lấy toàn bộ folder ner_model (gồm config.json và model.safetensors) và copy vào thư mục này
 
 5. Mở thư mục vừa clone bằng VSCODE
 
@@ -23,7 +25,7 @@ Cách chạy chương trình trên máy tính cá nhân:
 
 9. Cài đặt các module của Python cần thiết có trong requirements.txt: pip install -r requirements.txt
 
-10. Tải file dll cần thiết để chạy torch: https://drive.google.com/file/d/1BE6gCiT8b4XeZPTZElJZ6eC2Dz_mGyQB/view?usp=sharing
+10. Tải file dll cần thiết để chạy torch: https://drive.google.com/drive/folders/1ZDkNv_oTFt8GNvKU_scQHimEOdC9jdjw?usp=sharing
 
 11. Copy file dll vào đường dẫn: my_venv\Lib\torch\lib\
 
